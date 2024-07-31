@@ -22,11 +22,25 @@ def get_number(str_number)
   str_number
 end
 
+# Optimal solution
 lines.each do |line|
   numbers = line.scan(/(?=(\d|one|two|three|four|five|six|seven|eight|nine))/)
   numbers.flatten!
   first = get_number(numbers.first)
   last = get_number(numbers.last)
+  sum += "#{first}#{last}".to_i
+end
+
+pp sum
+
+sum = 0
+
+# Less optimal
+lines.each do |line|
+  numbers = line.scan(/\d|one|two|three|four|five|six|seven|eight|nine/)
+  numbers_reversed = line.reverse.scan(/\d|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin/)
+  first = get_number(numbers.first)
+  last = get_number(numbers_reversed.first.reverse)
   sum += "#{first}#{last}".to_i
 end
 
