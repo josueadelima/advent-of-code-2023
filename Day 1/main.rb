@@ -39,8 +39,8 @@ sum = 0
 lines.each do |line|
   numbers = line.match(/\d|one|two|three|four|five|six|seven|eight|nine/)
   numbers_reversed = line.reverse.match(/\d|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin/)
-  first = get_number(numbers.first)
-  last = get_number(numbers_reversed.first.reverse)
+  first = get_number(numbers[0])
+  last = get_number(numbers_reversed[0].reverse)
   sum += "#{first}#{last}".to_i
 end
 
